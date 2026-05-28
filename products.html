@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog | Solarica</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/catalog.css?v=1">
+    
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+
+    <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div>
+    <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div>
+    <div id="navbar-placeholder"></div>
+    
+    <main class="catalog-main">
+        
+        <div class="catalog-top-banner">
+            <div class="container">
+                <span class="catalog-breadcrumb">CATALOG</span>
+                <div class="catalog-header-flex">
+                    <h1 id="catalog-title">All Products</h1>
+                    <span id="catalog-count" class="catalog-count">Showing 0 results</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container catalog-layout">
+            
+            <aside class="catalog-sidebar">
+                <div class="sidebar-header">
+                    <i class="fa-solid fa-table-cells-large"></i>
+                    <h2>Categories</h2>
+                </div>
+                
+                <div id="sidebar-accordion" class="sidebar-accordion">
+                    <p class="text-slate-400 text-sm p-4">Loading categories...</p>
+                </div>
+            </aside>
+
+            <div class="catalog-content">
+                <div id="product-grid" class="product-grid">
+                    </div>
+                
+                <div id="empty-state" class="empty-state hidden">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>No products found</h3>
+                    <p>Select a different category from the menu.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/product-database.js"></script> 
+    <script src="js/catalog.js"></script> 
+</body>
+</html>

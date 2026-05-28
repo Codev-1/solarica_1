@@ -1,0 +1,54 @@
+/* =========================================
+   CUSTOM FOLLOW CURSOR STYLES
+========================================= */
+
+/* Hide default cursor on desktop */
+@media (min-width: 768px) {
+    body {
+        cursor:auto; 
+    }
+    /* Ensure hovering over links shows a pointer if the custom cursor glitches */
+    a, button {
+        cursor: auto; 
+    }
+}
+
+/* The solid orange dot */
+.custom-cursor-dot { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 12px; 
+    height: 12px; 
+    background-color: #f97316; /* Orange 500 */
+    border-radius: 50%; 
+    pointer-events: none; 
+    z-index: 999999; 
+    opacity: 0; 
+    will-change: transform;
+}
+
+/* The trailing orange ring */
+.custom-cursor-ring { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 36px; 
+    height: 36px; 
+    border: 2px solid rgba(249, 115, 22, 0.5); 
+    border-radius: 50%; 
+    pointer-events: none; 
+    z-index: 999998; 
+    opacity: 0; 
+    will-change: transform;
+}
+
+/* Hide on mobile devices entirely */
+@media (max-width: 767px) { 
+    .hidden-mobile { 
+        display: none !important; 
+    } 
+    body, a, button {
+        cursor: auto;
+    }
+}
