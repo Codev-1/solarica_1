@@ -95,7 +95,7 @@
 
 /* Mega Menu (Specific to image) */
 .mega-menu { 
-    left: -50px; /* Aligns left side just under the link */
+    left: -270px; /* Aligns left side just under the link */
     width: 950px; /* Fixed width, not full screen */
     max-width: 90vw;
     padding: 2rem 2.5rem; 

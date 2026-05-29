@@ -614,7 +614,7 @@ const productDatabase = {
     description: "Complete high mast accessory set designed for secure installation and long-term stability of high mast lighting systems.",
     features: ["Heavy Duty", "Corrosion Resistant", "Complete Kit", "High Stability"],
     specs: { "Components": "Bolts, Clamps", "Material": "Galvanized Steel", "Finish": "Corrosion Resistant", "Load": "Heavy Duty" },
-    image: "/Light%20Accessories/1.jpeg",
+    image: "products/light-accessories/high-mast-accessories-set.jpeg",
     basePrice: "On Request", installation: "Site Based", warranty: "5 Years"
   },
   "solar-light-accessories-kit": {
@@ -624,7 +624,7 @@ const productDatabase = {
     description: "Complete accessory kit for solar street lights, including connectors, cable glands, mounting fittings, and protection components.",
     features: ["All-in-One Kit", "IP65 Rated", "UV Stabilized", "Easy Install"],
     specs: { "Components": "Glands, Connectors", "Material": "UV-Plastic", "IP Rating": "IP65", "Temp": "-10°C to 60°C" },
-    image: "/Light%20Accessories/2.jpeg",
+    image: "products/light-accessories/solar-light-accessories-kit.jpeg",
     basePrice: "On Request", installation: "Included", warranty: "2 Years"
   },
   "outdoor-battery-box-for-solar-lights": {
@@ -634,7 +634,7 @@ const productDatabase = {
     description: "Weatherproof battery enclosure designed to safely house solar batteries for street lights, protecting them from rain, dust, and heat.",
     features: ["Weatherproof", "Secure Lock", "Ventilated", "Pole Mount"],
     specs: { "Type": "Battery Box", "Material": "Powder Coated GI", "IP Rating": "IP65", "Lock": "Key System" },
-    image: "/Light%20Accessories/3.jpeg",
+    image: "products/light-accessories/outdoor-battery-box-for-solar-lights.jpeg",
     basePrice: "On Request", installation: "Pole Mount", warranty: "2 Years"
   },
   "solar-light-assembly-unit": {
@@ -644,7 +644,7 @@ const productDatabase = {
     description: "Complete solar light assembly unit designed for quick and reliable installation of solar street and garden lights.",
     features: ["Pre-Wired", "Quick Install", "Durable", "Universal Fit"],
     specs: { "Type": "Assembly Unit", "Material": "Aluminum/GI", "Wiring": "Pre-Wired", "IP Rating": "IP65" },
-    image: "/Light%20Accessories/4.png",
+    image: "products/light-accessories/solar-light-assembly-unit.png",
     basePrice: "On Request", installation: "Pole Mount", warranty: "2 Years"
   },
   "single-arm-bracket": {
@@ -654,7 +654,7 @@ const productDatabase = {
     description: "Single arm mounting bracket designed for secure installation of street lights on poles. Built with high-strength GI steel.",
     features: ["High Strength", "Rust Proof", "Secure Fit", "Easy Mount"],
     specs: { "Length": "450 mm", "Material": "Hot Dip Galvanized", "Thickness": "3 mm", "Mount": "Clamp / Weld" },
-    image: "/Light%20Accessories/5.png",
+    image: "products/light-accessories/single-arm-bracket.png",
     basePrice: "On Request", installation: "Not Required", warranty: "5 Years"
   },
   "double-arm-bracket": {
@@ -664,7 +664,7 @@ const productDatabase = {
     description: "Heavy-duty double arm bracket for mounting two luminaires on wide roads and highways.",
     features: ["Dual Mount", "Heavy Duty", "Balanced Design", "Highway Grade"],
     specs: { "Length": "2 x 450 mm", "Material": "Mild Steel", "Thickness": "4 mm", "Mount": "Weld / Clamp" },
-    image: "/Light%20Accessories/6.png",
+    image: "products/light-accessories/double-arm-bracket.png",
     basePrice: "On Request", installation: "Not Required", warranty: "5 Years"
   },
   "pole-base-plate": {
@@ -674,14 +674,14 @@ const productDatabase = {
     description: "Laser-cut heavy-duty base plate used for fixing poles on concrete foundations.",
     features: ["Laser Cut", "High Precision", "Heavy Load", "Zinc Coated"],
     specs: { "Size": "300 x 300 mm", "Thickness": "12 mm", "Holes": "4 Nos", "Finish": "Zinc Coated" },
-    image: "/Light%20Accessories/7.png",
+    image: "products/light-accessories/pole-base-plate.png",
     basePrice: "On Request", installation: "Not Required", warranty: "3 Years"
   },
 
   // 12. STREET LIGHT poles & MASTS
   "decorative-street-light-pole--6m": {
     name: "6 Meter Decorative Street Pole",
-    category: "Street Light poles & Masts",
+    category: "Street Light Poles & Masts",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Elegant decorative pole for city beautification projects, gardens, and promenades.",
     features: ["Elegant Design", "City Beautification", "Durable Finish", "Foundation Mounted"],
@@ -691,7 +691,7 @@ const productDatabase = {
   },
   "solar-street-light-pole--9m": {
     name: "9 Meter Octagonal Street Light Pole",
-    category: "Street Light poles & Masts",
+    category: "Street Light Poles & Masts",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "9 meter octagonal pole designed for residential streets and main roads.",
     features: ["Octagonal Shape", "High Strength", "Galvanized", "Wind Resistant"],
@@ -701,7 +701,7 @@ const productDatabase = {
   },
   "double-arm-street-light-pole--8m": {
     name: "8 Meter Double Arm Street Light Solar Pole",
-    category: "Street Light poles & Masts",
+    category: "Street Light Poles & Masts",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "8 meter solar street light pole with solar panel mounting arm. Suitable for highways.",
     features: ["Solar Mounting", "Double Arm", "Highway Grade", "Robust Design"],
@@ -711,7 +711,7 @@ const productDatabase = {
   },
   "high-mast-pole--12m": {
     name: "12 Meter High Mast Pole",
-    category: "Street Light poles & Masts",
+    category: "Street Light Poles & Masts",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Heavy-duty high mast pole for large open areas and industrial lighting requirements.",
     features: ["High Mast", "Heavy Duty", "Large Area", "Industrial Use"],
@@ -721,7 +721,7 @@ const productDatabase = {
   },
   "aluminum-garden-light-pole--3m": {
     name: "3 Meter Garden Light Pole",
-    category: "Street Light poles & Masts",
+    category: "Street Light Poles & Masts",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Compact garden light pole ideal for pathways, landscapes, and residential gardens.",
     features: ["Compact Size", "Garden Use", "Pathway Light", "Matte Finish"],
@@ -733,7 +733,7 @@ const productDatabase = {
   // 13. control-panels & AUTOMATION
   "solar-street-light-control-panel": {
     name: "Solar Street Light Control Panel",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Automatic control panel for solar street light systems with smart charging and protection.",
     features: ["Auto ON/OFF", "Overcharge Protection", "Weatherproof", "PWM Based"],
@@ -743,7 +743,7 @@ const productDatabase = {
   },
   "hybrid-solar-controller-panel": {
     name: "Hybrid Solar Controller Panel",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Hybrid controller panel for solar and grid power with intelligent battery management.",
     features: ["Hybrid Mode", "Battery Management", "LCD Display", "Solar + Grid"],
@@ -753,7 +753,7 @@ const productDatabase = {
   },
   "pwm-solar-charge-controller-box": {
     name: "PWM Solar Charge Controller Box",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Compact PWM charge controller box for garden and small solar lighting systems.",
     features: ["PWM Charging", "Compact Size", "IP65 Rated", "Garden Use"],
@@ -763,7 +763,7 @@ const productDatabase = {
   },
   "mppt-solar-control-panel": {
     name: "MPPT Solar Control Panel",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "High-efficiency MPPT based solar control panel for professional street light projects.",
     features: ["MPPT Tech", "High Efficiency", "Digital Display", "Surge Protection"],
@@ -773,7 +773,7 @@ const productDatabase = {
   },
   "all-in-one-solar-controller-unit": {
     name: "All-in-One Solar Controller Unit",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Integrated solar controller unit with battery management and dusk-to-dawn automation.",
     features: ["Integrated BMS", "Auto Dusk-Dawn", "Plug & Play", "Automatic"],
@@ -783,7 +783,7 @@ const productDatabase = {
   },
   "industrial-lighting-control-panel": {
     name: "Industrial Lighting Control Panel",
-    category: "control-panels & Automation",
+    category: "Control Panels & Automation",
     company: "Solarica Fabtech Pvt. Ltd.",
     description: "Heavy-duty industrial control panel for large outdoor and infrastructure lighting systems.",
     features: ["Heavy Duty", "Surge Protection", "Industrial Grade", "MCB Protection"],
@@ -990,7 +990,7 @@ const productDatabase = {
     description: "Compact AC home charger designed for daily EV charging with built-in safety protection and smart monitoring.",
     features: ["Compact Design", "Built-in Safety", "Smart Protection", "Residential Use"],
     specs: { "Power Output": "3.3 kW", "Input Voltage": "230V AC", "Protection": "Over Voltage", "IP Rating": "IP54", "Connector": "Type 2" },
-    image: "/EV%20Chargers/1.jpeg",
+    image: "products/ev-chargers/home-ev-charger-3.3kw.jpeg",
     basePrice: "On Request", installation: "Optional", warranty: "2 Years"
   },
   "smart-ev-charger--7.4kw": {
@@ -1000,7 +1000,7 @@ const productDatabase = {
     description: "High-speed smart wallbox charger with WiFi connectivity and OCPP support for modern homes and apartments.",
     features: ["WiFi Enabled", "OCPP Support", "High Speed", "Smart Monitoring"],
     specs: { "Power Output": "7 kW", "Connectivity": "WiFi / OCPP", "Connector": "Type 2", "Safety": "RCD, Surge", "IP Rating": "IP55" },
-    image: "/EV%20Chargers/2.webp",
+    image: "products/ev-chargers/smart-ev-charger-7.4kw.webp",
     basePrice: "On Request", installation: "As per site", warranty: "3 Years"
   },
   "portable-ev-charger--3kw": {
@@ -1010,7 +1010,7 @@ const productDatabase = {
     description: "Lightweight portable EV charger for emergency and travel charging needs with plug-and-play operation.",
     features: ["Plug & Play", "Lightweight", "Travel Friendly", "Emergency Use"],
     specs: { "Power Output": "3 kW", "Connector": "Type 2", "Cable Length": "5 Meter", "Protection": "Overheat", "IP Rating": "IP44" },
-    image: "/EV%20Chargers/3.jpeg",
+    image: "products/ev-chargers/portable-ev-charger-3kw.jpeg",
     basePrice: "On Request", installation: "Not Required", warranty: "1 Year"
   },
   "smart-socket-ev-charger": {
@@ -1020,7 +1020,7 @@ const productDatabase = {
     description: "Smart 15A socket for EV charging with App control and energy monitoring.",
     features: ["15A Socket", "App Control", "Energy Monitoring", "Easy Install"],
     specs: { "Power Output": "3 kW", "Connector": "Universal", "Control": "Mobile App", "Monitoring": "Live Stats" },
-    image: "/EV%20Chargers/4.webp",
+    image: "products/ev-chargers/smart-socket-ev-charger.webp",
     basePrice: "On Request", installation: "Not Required", warranty: "1 Year"
   },
   "wallbox-ev-charger--11kw": {
@@ -1030,7 +1030,7 @@ const productDatabase = {
     description: "Compact wallbox charger for fast home charging with LED indicators.",
     features: ["11kW Output", "Compact Design", "LED Indicator", "Weatherproof"],
     specs: { "Power Output": "11 kW", "Connector": "Type 2", "IP Rating": "IP54", "Mounting": "Wall" },
-    image: "/EV%20Chargers/5.jpg",
+    image: "products/ev-chargers/wallbox-ev-charger-11kw.jpg",
     basePrice: "On Request", installation: "Site Based", warranty: "2 Years"
   },
   "type-2-charging-cable": {
@@ -1040,14 +1040,14 @@ const productDatabase = {
     description: "High-quality Type-2 to Type-2 charging cable for universal EV compatibility.",
     features: ["Type 2 to Type 2", "5 Meter Length", "Carry Bag", "Heavy Duty"],
     specs: { "Cable Length": "5 Meter", "Connector": "Type 2", "Rating": "32A", "IP Rating": "IP55" },
-    image: "/EV%20Chargers/6.jpeg",
+    image: "products/ev-chargers/type-2-charging-cable.jpeg",
     basePrice: "On Request", installation: "Not Required", warranty: "1 Year"
   },
 
   // 18. EV charging-station
   "commercial-ac-charger--22kw": {
     name: "Commercial AC Charger – 22kW",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "High-capacity AC charger for offices, malls, and parking complexes with RFID access control.",
     features: ["RFID Access", "Dual Gun Option", "Commercial Grade", "OCPP Compatible"],
@@ -1057,7 +1057,7 @@ const productDatabase = {
   },
   "dc-fast-charger--30kw": {
     name: "DC Fast Charger – 30kW",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "Public DC fast charger for highways and charging-station with rapid charging capability and touchscreen interface.",
     features: ["Rapid Charging", "Touch Screen", "Highway Use", "Forced Air Cooling"],
@@ -1067,7 +1067,7 @@ const productDatabase = {
   },
   "ultra-fast-ev-charger--60kw": {
     name: "Ultra Fast EV Charger – 60kW",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "Ultra-fast DC charger for fleet operators and public charging hubs with dual gun and high throughput.",
     features: ["Ultra Fast", "Dual Gun", "Fleet Ready", "Liquid/Air Cooling"],
@@ -1077,7 +1077,7 @@ const productDatabase = {
   },
   "public-ev-charging-station--dual-gun": {
     name: "Public EV Charging Station – Dual Gun",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "Public dual-gun EV charging station with integrated billing and payment systems.",
     features: ["Dual Gun", "Bill Payment", "Touch Screen", "Commercial Grade"],
@@ -1087,7 +1087,7 @@ const productDatabase = {
   },
   "solar-ev-charging-station": {
     name: "Solar EV Charging Station",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "100% green solar-powered EV charging station with integrated battery storage.",
     features: ["Solar Powered", "Off-Grid", "Integrated Battery", "Eco-Friendly"],
@@ -1097,7 +1097,7 @@ const productDatabase = {
   },
   "bus-truck-heavy-duty-charger": {
     name: "Bus & Truck Heavy Duty Charger",
-    category: "charging-station",
+    category: "Charging Stations",
     company: "Solarica Greenwheels Pvt. Ltd.",
     description: "Heavy-duty 120kW+ DC charger designed specifically for electric buses and heavy vehicles.",
     features: ["120kW DC", "Heavy Vehicle", "Liquid Cooled", "Ultra Fast"],

@@ -1,0 +1,9 @@
+# Ignore Node modules and React build files
+node_modules/
+.next/
+out/
+build/
+
+# Ignore heavy video files (temporarily)
+*.mp4
+*.mov

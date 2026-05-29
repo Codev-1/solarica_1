@@ -16,8 +16,8 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-900">
 
-    <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div>
-    <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div>
+    <!-- <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div>
+    <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div> -->
     <div id="navbar-placeholder"></div>
     
     <main class="catalog-main">
@@ -35,15 +35,73 @@
         <div class="container catalog-layout">
             
             <aside class="catalog-sidebar">
-                <div class="sidebar-header">
-                    <i class="fa-solid fa-table-cells-large"></i>
-                    <h2>Categories</h2>
-                </div>
-                
-                <div id="sidebar-accordion" class="sidebar-accordion">
-                    <p class="text-slate-400 text-sm p-4">Loading categories...</p>
-                </div>
-            </aside>
+    <div class="sidebar-header">
+        <i class="fa-solid fa-table-cells-large"></i>
+        <h2>Categories</h2>
+    </div>
+    
+    <div id="sidebar-accordion" class="sidebar-accordion">
+        
+        <div class="accordion-item active">
+            <button class="accordion-btn theme-orange">
+                ENERGY INDIA <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="subcategory-list" style="max-height: 500px;">
+                <div class="sub-link" data-category="Solar Street Lighting Systems">Solar Street Lights</div>
+                <div class="sub-link" data-category="Solar Water Pumping Systems">Solar Water Pumps</div>
+                <div class="sub-link" data-category="Solar Water Heating Solutions">Solar Water Heater</div>
+                <div class="sub-link" data-category="Solar Garden & Decorative Lights">Solar Garden Lights</div>
+                <div class="sub-link" data-category="Solar Garden & Decorative Lights">Solar Decorative Lights</div>
+                <div class="sub-link" data-category="Solar Flood & Security Lights">Solar Flood Lights</div>
+                <div class="sub-link" data-category="Solar Inverter Systems">Solar Inverter</div>
+                <div class="sub-link" data-category="Solar Photovoltaic Modules">Solar Panels</div>
+                <div class="sub-link" data-category="Commercial & Residential Lighting">AC Lights</div>
+                <div class="sub-link" data-category="Interior & Decorative Lighting">home-lights</div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn theme-blue">
+                SYSTEMS <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="subcategory-list">
+                <a href="schemes.html" class="sub-link" style="display: block;">PM Surya Ghar Yojana</a>
+                <a href="schemes.html" class="sub-link" style="display: block;">KUSUM Yojana</a>
+                <a href="schemes.html" class="sub-link" style="display: block;">Saur Krushi Pump Yojana</a>
+                <a href="schemes.html" class="sub-link" style="display: block;">Commercial</a>
+                <a href="schemes.html" class="sub-link" style="display: block;">Industrial</a>
+                <a href="schemes.html" class="sub-link" style="display: block;">Power Projects</a>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn theme-purple">
+                FABTECH <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="subcategory-list">
+                <div class="sub-link" data-category="Lighting Accessories & Hardware">light-accessories</div>
+                <div class="sub-link" data-category="Street Light Poles & Masts">poles</div>
+                <div class="sub-link" data-category="Control Panels & Automation">control-panels</div>
+                <div class="sub-link" data-category="Solar Home & Portable Products">Solar Home Products</div>
+                <div class="sub-link" data-category="Solar Mounting Structures">solar-structures</div>
+                <div class="sub-link" data-category="Industrial Fabrication & Works">industrial-works</div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn theme-green">
+                GREENWHEELS <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="subcategory-list">
+                <div class="sub-link" data-category="Charging Stations">charging-station</div>
+                <div class="sub-link" data-category="Electric Vehicle Chargers">ev-chargers</div>
+                <div class="sub-link" data-category="Electric Vehicle Battery Systems">ev-batteries</div>
+                <div class="sub-link" data-category="Annual Maintenance Contracts">amc-services</div>
+            </div>
+        </div>
+
+    </div>
+</aside>
 
             <div class="catalog-content">
                 <div id="product-grid" class="product-grid">

@@ -1,97 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. CONFIGURATION & DATA MAPPING ---
-    // We group your subcategories under the main company umbrellas
-    const companyConfig = {
-        "Solarica Energy India Pvt. Ltd.": {
-            theme: "theme-orange",
-            shortName: "Energy India",
-            icon: "fa-bolt",
-            subcategories: new Set()
-        },
-        "Solarica Systems Pvt. Ltd.": {
-            theme: "theme-blue",
-            shortName: "Systems",
-            icon: "fa-gear",
-            subcategories: new Set()
-        },
-        "Solarica Fabtech Pvt. Ltd.": {
-            theme: "theme-purple",
-            shortName: "Fabtech",
-            icon: "fa-industry",
-            subcategories: new Set()
-        },
-        "Solarica Greenwheels Pvt. Ltd.": {
-            theme: "theme-green",
-            shortName: "Greenwheels",
-            icon: "fa-leaf",
-            subcategories: new Set()
-        }
-    };
-
-    // Auto-extract categories from database
+    // --- 1. EXTRACT DATA ---
     const allProductsArray = Object.entries(productDatabase).map(([slug, data]) => ({ slug, ...data }));
-    
-    allProductsArray.forEach(product => {
-        if (companyConfig[product.company]) {
-            companyConfig[product.company].subcategories.add(product.category);
-        }
-    });
 
-    // --- 2. BUILD THE SIDEBAR ACCORDION ---
-    const accordionContainer = document.getElementById("sidebar-accordion");
-    accordionContainer.innerHTML = ""; // Clear loading text
-
-    Object.values(companyConfig).forEach((config, index) => {
-        if (config.subcategories.size === 0) return; // Skip if no products
-
-        const isActive = index === 0 ? "active" : ""; // Open the first one by default
-
-        let linksHtml = "";
-        Array.from(config.subcategories).sort().forEach(subcat => {
-            linksHtml += `<div class="sub-link" data-category="${subcat}">${subcat}</div>`;
-        });
-
-        const sectionHtml = `
-            <div class="accordion-item ${isActive}">
-                <button class="accordion-btn ${config.theme}">
-                    ${config.shortName} <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                <div class="subcategory-list">
-                    ${linksHtml}
-                </div>
-            </div>
-        `;
-        accordionContainer.innerHTML += sectionHtml;
-    });
-
-    // --- 3. ACCORDION TOGGLE LOGIC ---
+    // --- 2. ACCORDION TOGGLE LOGIC ---
     const accordionBtns = document.querySelectorAll(".accordion-btn");
     accordionBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             const parent = btn.parentElement;
-            // Toggle active class
+            
+            // Optional: Close other accordions when one opens
+            document.querySelectorAll(".accordion-item").forEach(item => {
+                if(item !== parent) {
+                    item.classList.remove("active");
+                    item.querySelector('.subcategory-list').style.maxHeight = null;
+                }
+            });
+
+            // Toggle active class on clicked item
             parent.classList.toggle("active");
+            const subList = parent.querySelector('.subcategory-list');
+            if (parent.classList.contains('active')) {
+                subList.style.maxHeight = subList.scrollHeight + "px";
+            } else {
+                subList.style.maxHeight = null;
+            }
         });
     });
 
-    // --- 4. FILTER & RENDER PRODUCTS LOGIC ---
+    // Initialize the first accordion as open
+    const firstList = document.querySelector('.accordion-item.active .subcategory-list');
+    if(firstList) firstList.style.maxHeight = firstList.scrollHeight + "px";
+
+    // --- 3. FILTER & RENDER PRODUCTS LOGIC ---
     const productGrid = document.getElementById("product-grid");
     const emptyState = document.getElementById("empty-state");
     const catalogTitle = document.getElementById("catalog-title");
     const catalogCount = document.getElementById("catalog-count");
-    const subLinks = document.querySelectorAll(".sub-link");
+    const subLinks = document.querySelectorAll(".sub-link[data-category]");
 
-    // Function to render products
-    function renderProducts(categoryName) {
-        // Update Title
-        const displayTitle = categoryName === "all" ? "All Products" : categoryName;
-        catalogTitle.textContent = displayTitle;
+    function renderProducts(categoryName, displayName = null) {
+        if (!productGrid || !emptyState || !catalogTitle || !catalogCount) return;
+
+        // Update Title (Use displayName if provided, else use raw categoryName)
+        catalogTitle.textContent = displayName || (categoryName === "all" ? "All Products" : categoryName);
 
         // Filter Array
         const filteredProducts = categoryName === "all" 
             ? allProductsArray 
-            : allProductsArray.filter(p => p.category === categoryName);
+            : allProductsArray.filter(p => p.category.toLowerCase() === categoryName.toLowerCase());
 
         // Update Count
         catalogCount.textContent = `Showing ${filteredProducts.length} results`;
@@ -106,27 +63,43 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Build Cards
             filteredProducts.forEach(product => {
-                // Fix image path
                 let imgPath = product.image.replace(/%20/g, " ");
                 if(imgPath.startsWith('/')) imgPath = imgPath.substring(1);
+                if(!imgPath.includes("assets/images/")) imgPath = `assets/images/${imgPath}`;
 
-                // Determine Series Tag
                 let seriesName = "ENERGY SERIES";
                 if(product.company.includes("Systems")) seriesName = "SYSTEMS SERIES";
                 if(product.company.includes("Fabtech")) seriesName = "FABTECH SERIES";
                 if(product.company.includes("Greenwheels")) seriesName = "EV SERIES";
 
+                let themeColorClass = "bg-orange-500"; let lightBgClass = "bg-orange-50";
+                if(product.company.includes("Systems")) { themeColorClass = "bg-blue-500"; lightBgClass = "bg-blue-50"; }
+                if(product.company.includes("Fabtech")) { themeColorClass = "bg-purple-500"; lightBgClass = "bg-purple-50"; }
+                if(product.company.includes("Greenwheels")) { themeColorClass = "bg-green-500"; lightBgClass = "bg-green-50"; }
+
+                let quickSpecHtml = '';
+                if(product.specs && Object.keys(product.specs).length > 0) {
+                    const firstSpecKey = Object.keys(product.specs)[0];
+                    const firstSpecValue = product.specs[firstSpecKey];
+                    quickSpecHtml = `<span class="quick-spec">${firstSpecKey}: ${firstSpecValue}</span>`;
+                }
+
                 const cardHtml = `
-                    <a href="product.html?slug=${product.slug}" class="cat-card">
-                        <div class="badge-enquiry">ENQUIRY NOW</div>
-                        <div class="cat-img-box">
-                            <img src="assets/images/${imgPath}" alt="${product.name}">
+                    <a href="product.html?slug=${product.slug}" class="cat-card group">
+                        <div class="badge-enquiry ${themeColorClass}">ENQUIRY NOW</div>
+                        <div class="cat-img-box ${lightBgClass}">
+                            <div class="img-glow ${themeColorClass}"></div>
+                            <img src="${imgPath}" alt="${product.name}">
                         </div>
                         <div class="cat-details">
                             <div class="cat-series">
-                                <i class="fa-solid fa-bolt series-icon"></i> ${seriesName}
+                                <i class="fa-solid fa-bolt text-yellow-500"></i> ${seriesName}
                             </div>
                             <h3 class="cat-title">${product.name}</h3>
+                            ${quickSpecHtml}
+                        </div>
+                        <div class="hover-arrow ${themeColorClass}">
+                            <i class="fa-solid fa-arrow-right"></i>
                         </div>
                     </a>
                 `;
@@ -134,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Update Active Link Styling in Sidebar
+        // Update Active Styling in Sidebar
         subLinks.forEach(link => {
-            if (link.getAttribute("data-category") === categoryName) {
+            if (link.getAttribute("data-category").toLowerCase() === categoryName.toLowerCase()) {
                 link.classList.add("active-link");
             } else {
                 link.classList.remove("active-link");
@@ -144,22 +117,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 5. INITIAL LOAD & CLICK LISTENERS ---
+    // --- 4. INITIAL LOAD & CLICK LISTENERS ---
     
-    // Check if URL has a category parameter (e.g. products.html?category=Solar+Panels)
+    // Check URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const initialCategory = urlParams.get('category');
 
     if (initialCategory) {
-        renderProducts(initialCategory);
-        // Ensure accordion containing this link is open
+        // Try to find the display name in the sidebar
+        let displayName = initialCategory;
         subLinks.forEach(link => {
-            if (link.getAttribute("data-category") === initialCategory) {
+            if (link.getAttribute("data-category").toLowerCase() === initialCategory.toLowerCase()) {
+                displayName = link.textContent;
                 link.closest('.accordion-item').classList.add('active');
+                const subList = link.closest('.subcategory-list');
+                subList.style.maxHeight = subList.scrollHeight + "px";
             }
         });
+        renderProducts(initialCategory, displayName);
     } else {
-        // If no parameter, show ALL products
         renderProducts("all");
     }
 
@@ -167,14 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
     subLinks.forEach(link => {
         link.addEventListener("click", () => {
             const selectedCat = link.getAttribute("data-category");
+            const displayName = link.textContent;
             
-            // Update URL without reloading page (for clean sharing)
             const newUrl = `${window.location.pathname}?category=${encodeURIComponent(selectedCat)}`;
             window.history.pushState({ path: newUrl }, '', newUrl);
             
-            renderProducts(selectedCat);
-            
-            // Scroll to top of grid
+            renderProducts(selectedCat, displayName);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });

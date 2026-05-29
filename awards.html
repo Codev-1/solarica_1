@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards | Solarica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/navbar.css"><link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="css/cursor.css"><link rel="stylesheet" href="css/about.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+    <a href="about.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Overview</a>
+
+    <main class="pt-40 pb-24 bg-white relative overflow-hidden">
+        <div class="awards-bg">
+            <div class="bg-gradient-sky"></div><i class="fa-solid fa-sun awards-sun"></i>
+            <div class="awards-windmills"><i class="fa-solid fa-fan w1"></i><i class="fa-solid fa-fan w2"></i><i class="fa-solid fa-fan w3"></i></div>
+            <div class="solar-farm-grid"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
+                <div class="text-left max-w-2xl">
+                    <h2 class="sec-badge text-orange-500 mb-4"><i class="fa-solid fa-award"></i> Recognition</h2>
+                    <h3 class="text-4xl md:text-6xl font-black text-slate-900 mb-4">Awards & <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-green-500">Certifications</span></h3>
+                </div>
+                <div class="flex gap-4 mt-8 md:mt-0">
+                    <button id="award-prev" class="slider-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="award-next" class="slider-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div id="awards-slider" class="awards-slider hide-scrollbar">
+                
+                <div class="award-card group" data-title="Sustainable Energy Excellence Award" data-date="26 February 2022" data-desc="Recognized for outstanding contribution to sustainable energy development." data-img="assets/images/Sustainable energy.jpg">
+                    <div class="award-img-box"><img src="assets/images/Sustainable energy.jpg" alt="Award 1"></div>
+                    <div class="award-text">
+                        <h4 class="line-clamp-2">Sustainable Energy Excellence Award</h4>
+                        <span class="tap-expand">Tap to Expand <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </div>
+
+                <div class="award-card group" data-title="Green Technology Innovation Award" data-date="14 July 2022" data-desc="Awarded for breakthrough innovations in green technology and significant advancement in renewable energy sector." data-img="assets/images/Green Technology.jpg">
+                    <div class="award-img-box"><img src="assets/images/Green Technology.jpg" alt="Award 2"></div>
+                    <div class="award-text">
+                        <h4 class="line-clamp-2">Green Technology Innovation Award</h4>
+                        <span class="tap-expand">Tap to Expand <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </div>
+
+                <div class="award-card group" data-title="Future Energy Leadership Award" data-date="26 February 2025" data-desc="Prestigious recognition for visionary leadership in future energy solutions and pioneering role in solar tech." data-img="assets/images/Future Energy.jpg">
+                    <div class="award-img-box"><img src="assets/images/Future Energy.jpg" alt="Award 3"></div>
+                    <div class="award-text">
+                        <h4 class="line-clamp-2">Future Energy Leadership Award</h4>
+                        <span class="tap-expand">Tap to Expand <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="award-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-img-col"><img id="modal-img" src="" alt="Award"></div>
+            <div class="modal-text-col">
+                <span id="modal-date" class="modal-date"></span>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <div class="modal-divider"></div>
+                <p id="modal-desc" class="modal-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/navbar.js"></script><script src="js/footer.js"></script><script src="js/cursor.js"></script><script src="js/about.js"></script>
+</body>
+</html>
