@@ -12,9 +12,11 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
 
-    <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div>
-    <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div>
+    <!-- <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div> -->
+    <!-- <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div> -->
     <div id="navbar-placeholder"></div>
+
+	
 
     <main id="about-main">
         <div class="about-section">
@@ -30,6 +32,14 @@
                     <p class="hero-desc">At Solarica, we're redefining clean energy with advanced solar technologies and sustainable manufacturing excellence.</p>
                 </div>
             </section>
+
+			<nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <div class="breadcrumb-container">
+        <ol id="breadcrumb-list" class="breadcrumb-list">
+            <!-- JavaScript will automatically inject clickable links here -->
+        </ol>
+    </div>
+</nav>
 
             <div class="container mx-auto px-6 py-20 text-center">
                 <h2 class="text-3xl font-bold mb-12 text-slate-900">Explore Our Story</h2>
@@ -69,10 +79,12 @@
         </div>
     </main>
 
+
     <div id="footer-placeholder"></div>
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/about.js"></script>
+	<script src="js/breadcrumb.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css?v=2">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cursor.css">
     <link rel="stylesheet" href="css/catalog.css?v=1">
@@ -19,6 +19,15 @@
     <!-- <div id="cursor-dot" class="custom-cursor-dot hidden-mobile"></div>
     <div id="cursor-ring" class="custom-cursor-ring hidden-mobile"></div> -->
     <div id="navbar-placeholder"></div>
+
+	<!-- Breadcrumb Navigation Container -->
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <div class="breadcrumb-container">
+        <ol id="breadcrumb-list" class="breadcrumb-list">
+            <!-- JavaScript will automatically inject clickable links here -->
+        </ol>
+    </div>
+</nav>
     
     <main class="catalog-main">
         
@@ -60,17 +69,19 @@
             </div>
         </div>
 
+        <!-- SYSTEMS -->
         <div class="accordion-item">
             <button class="accordion-btn theme-blue">
                 SYSTEMS <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="subcategory-list">
-                <a href="schemes.html" class="sub-link" style="display: block;">PM Surya Ghar Yojana</a>
-                <a href="schemes.html" class="sub-link" style="display: block;">KUSUM Yojana</a>
-                <a href="schemes.html" class="sub-link" style="display: block;">Saur Krushi Pump Yojana</a>
-                <a href="schemes.html" class="sub-link" style="display: block;">Commercial</a>
-                <a href="schemes.html" class="sub-link" style="display: block;">Industrial</a>
-                <a href="schemes.html" class="sub-link" style="display: block;">Power Projects</a>
+                <!-- Update these links! -->
+                <a href="pm-surya-ghar.html" class="sub-link" style="display: block;">PM Surya Ghar Yojana</a>
+                <a href="kusum-yojana.html" class="sub-link" style="display: block;">KUSUM Yojana</a>
+                <a href="saur-krushi-pump.html" class="sub-link" style="display: block;">Saur Krushi Pump Yojana</a>
+                <a href="commercial-projects.html" class="sub-link" style="display: block;">Commercial</a>
+                <a href="industrial-projects.html" class="sub-link" style="display: block;">Industrial</a>
+                <a href="power-projects.html" class="sub-link" style="display: block;">Power Projects</a>
             </div>
         </div>
 
@@ -123,6 +134,7 @@
     <script src="js/footer.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/product-database.js"></script> 
-    <script src="js/catalog.js"></script> 
+    <script src="js/catalog.js"></script>
+	<script src="js/breadcrumb.js"></script> 
 </body>
 </html>

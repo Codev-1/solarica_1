@@ -1,15 +1,15 @@
+// Remove the 'navbarLoaded' wrapper here. We will just use standard DOMContentLoaded.
 document.addEventListener("DOMContentLoaded", () => {
 
-
-
     // --- 1. INITIALIZE LENIS SMOOTH SCROLL ---
-    const lenis = new Lenis({
+   // --- 1. INITIALIZE GLOBAL LENIS SMOOTH SCROLL ---
+    window.lenis = new Lenis({
         lerp: 0.08,
         duration: 1.5,
         smoothWheel: true
     });
     function raf(time) {
-        lenis.raf(time);
+        if (window.lenis) window.lenis.raf(time);
         requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
@@ -34,9 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if(ring) ring.style.opacity = 1;
     });
 
-    // Lerp function for the trailing ring (replicates Framer Motion spring)
+    // Lerp function for the trailing ring
     function animateCursor() {
-        // LERP Math: current = current + (target - current) * speed
         ringX += (mouseX - ringX) * 0.15;
         ringY += (mouseY - ringY) * 0.15;
         
@@ -49,80 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animateCursor);
 
 
-    // --- 3. FETCH NAVBAR & FOOTER ---
-    const navPlaceholder = document.getElementById('navbar-placeholder');
-    if (navPlaceholder) {
-        fetch('navbar.html')
-            .then(res => res.text())
-            .then(data => {
-                navPlaceholder.innerHTML = data;
-                initNavbarLogic(); 
-            });
-    }
-
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(data => {
-                footerPlaceholder.innerHTML = data;
-                initWhatsAppLogic();
-            });
-    }
+    // --- 3. FETCH FOOTER ONLY (Navbar is handled by navbar.js now!) ---
+   
 
 
-    // --- 4. COMPONENT LOGIC ---
-    function initNavbarLogic() {
-        const topBar = document.getElementById("nav-top-bar");
-        const mainHeader = document.getElementById("main-header");
-        
-        // Scroll Listener
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 20) {
-                topBar.classList.add("scrolled");
-                mainHeader.classList.add("scrolled");
-            } else {
-                topBar.classList.remove("scrolled");
-                mainHeader.classList.remove("scrolled");
-            }
-        });
-    }
-
-    function initWhatsAppLogic() {
-        const container = document.getElementById("floating-wa-container");
-        const trigger = document.getElementById("wa-trigger");
-        const dropdown = document.getElementById("wa-dropdown");
-        const iconMain = document.getElementById("wa-icon-main");
-        const iconClose = document.getElementById("wa-icon-close");
-
-        if(trigger && dropdown) {
-            trigger.addEventListener("click", () => {
-                container.classList.toggle("active");
-                dropdown.classList.toggle("active");
-                
-                // Toggle icons
-                if(container.classList.contains("active")) {
-                    iconMain.classList.add("hidden");
-                    iconClose.classList.remove("hidden");
-                } else {
-                    iconMain.classList.remove("hidden");
-                    iconClose.classList.add("hidden");
-                }
-            });
-        }
-    }
-
-
-
-
-
-
-    
+    // --- 4. GSAP ANIMATIONS ---
     gsap.registerPlugin(ScrollTrigger);
 
-    /* ==========================================
-       1. HERO SECTION ANIMATIONS
-    ========================================== */
     gsap.to(".hero-text-container", { opacity: 1, duration: 1 });
     gsap.from(".hero-title, .hero-subtitle", { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" });
     gsap.to(".hero-buttons", { opacity: 1, y: 0, duration: 1, delay: 0.8 });
@@ -149,9 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* ==========================================
-       2. MARQUEE STRIP
-    ========================================== */
+    // --- 5. MARQUEE STRIP ---
     const marqueeParts = document.querySelectorAll(".marquee-part");
     const slider = document.getElementById("marquee-slider");
     let xPercent = 0;
@@ -167,71 +97,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(animateMarquee);
 
-    gsap.to(slider, {
-        scrollTrigger: {
-            trigger: document.documentElement,
-            scrub: 0.25,
-            start: 0,
-            end: window.innerHeight,
-            onUpdate: e => direction = e.direction * -1
-        },
-        x: "-=300px"
-    });
+    if(slider) {
+        gsap.to(slider, {
+            scrollTrigger: {
+                trigger: document.documentElement,
+                scrub: 0.25,
+                start: 0,
+                end: window.innerHeight,
+                onUpdate: e => direction = e.direction * -1
+            },
+            x: "-=300px"
+        });
+    }
 
-    /* ==========================================
-       3. PRODUCT AUTO SCROLL
-    ========================================== */
-   const prodContainer = document.getElementById("product-scroll-container");
+    // --- 6. PRODUCT AUTO SCROLL ---
+    const prodContainer = document.getElementById("product-scroll-container");
     let isPaused = false;
 
     if (prodContainer) {
-        // Pause scrolling when the user hovers over a product
         prodContainer.addEventListener("mouseenter", () => isPaused = true);
         prodContainer.addEventListener("mouseleave", () => isPaused = false);
 
-        // Auto Scroll Interval (Every 3 seconds)
         setInterval(() => {
             if (!isPaused) {
-                // Get the width of one card + the gap (32px / 2rem)
                 const itemWidth = prodContainer.children[0]?.clientWidth || 320;
                 const scrollAmount = itemWidth + 32; 
-                
-                // Check if we hit the end
                 const maxScroll = prodContainer.scrollWidth - prodContainer.clientWidth;
 
                 if (prodContainer.scrollLeft >= maxScroll - 10) {
-                    // Instantly snap back to the beginning
                     prodContainer.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    // Scroll to the next item
                     prodContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
             }
         }, 3000);
 
-        // Manual Buttons
         const leftBtn = document.getElementById("btn-scroll-left");
         const rightBtn = document.getElementById("btn-scroll-right");
 
-        if(leftBtn) {
-            leftBtn.addEventListener("click", () => {
-                const itemWidth = prodContainer.children[0]?.clientWidth || 320;
-                prodContainer.scrollBy({ left: -(itemWidth + 32), behavior: 'smooth' });
-            });
-        }
+        if(leftBtn) leftBtn.addEventListener("click", () => {
+            const itemWidth = prodContainer.children[0]?.clientWidth || 320;
+            prodContainer.scrollBy({ left: -(itemWidth + 32), behavior: 'smooth' });
+        });
 
-        if(rightBtn) {
-            rightBtn.addEventListener("click", () => {
-                const itemWidth = prodContainer.children[0]?.clientWidth || 320;
-                prodContainer.scrollBy({ left: (itemWidth + 32), behavior: 'smooth' });
-            });
-        }
+        if(rightBtn) rightBtn.addEventListener("click", () => {
+            const itemWidth = prodContainer.children[0]?.clientWidth || 320;
+            prodContainer.scrollBy({ left: (itemWidth + 32), behavior: 'smooth' });
+        });
     }
 
-
-    /* ==========================================
-       4. PM SURYA GHAR SLIDER
-    ========================================== */
+    // --- 7. PM SURYA GHAR SLIDER ---
     const suryaImages = document.querySelectorAll(".surya-img");
     let currentSuryaIndex = 0;
 
@@ -243,9 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 4000);
     }
 
-    /* ==========================================
-       5. ECOSYSTEM ACCORDION
-    ========================================== */
+    // --- 8. ECOSYSTEM ACCORDION ---
     const ecoCards = document.querySelectorAll(".eco-card");
     
     ecoCards.forEach(card => {

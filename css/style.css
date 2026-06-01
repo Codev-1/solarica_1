@@ -2,6 +2,21 @@
    SOLARICA - PURE CSS STYLESHEET
 ========================================= */
 
+
+/* --- CRITICAL FIX FOR MOBILE NAVBAR ON INDEX PAGE --- */
+#navbar-placeholder {
+    position: relative;
+    z-index: 999999 !important; /* Forces the entire placeholder above the Hero video */
+}
+
+/* Ensure GSAP containers don't trap pointer events */
+.hero-section {
+    position: relative;
+    z-index: 1; /* Keeps hero below the navbar */
+}
+
+
+
 /* --- 1. VARIABLES & RESETS --- */
 :root {
     /* Colors */
@@ -84,7 +99,7 @@ ul { list-style: none; }
 /* --- 3. HERO SECTION --- */
 .hero-section { position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; background-color: var(--slate-900); }
 .hero-bg-container { position: absolute; inset: 0; width: 100%; height: 120%; }
-.hero-video-blur { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(0px); opacity: 0.7; transform: scale(1.1); }
+.hero-video-blur { position: absolute; inset: 0; width: 100%; height: 100%; object-fit:fill; filter: blur(0px); opacity: 0.8; transform: scale(1.1); }
 .hero-video-clear { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
 .hero-overlay-dark { position: absolute; inset: 0; background-color: rgba(0,0,0,0.2); }
 .hero-text-container { position: relative; text-align: center; margin-top: 5rem; }
@@ -253,8 +268,8 @@ ul { list-style: none; }
 .eco-card-content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; }
 @media (min-width: 768px) { .eco-card-content { padding: 3rem; } }
 .eco-icon-wrapper { margin-bottom: auto; }
-.eco-icon { width: 4rem; height: 4rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--slate-200); background: var(--slate-100); color: #94a3b8; transition: all 0.5s; }
-.eco-card.active .eco-icon { background: rgba(255,255,255,0.2); backdrop-filter: blur(16px); color: var(--white); border-color: rgba(255,255,255,0.3); transform: scale(1.1); }
+.eco-icon { width: 4rem; height: 4rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--slate-400); background: var(--slate-100); color: #070707; transition: all 0.5s; }
+.eco-card.active .eco-icon { background: rgba(255, 255, 255, 0.374); backdrop-filter: blur(10px); color: var(--white); border-color: rgba(255, 255, 255, 0.539); transform: scale(1.1); }
 
 .eco-text-wrapper { position: relative; overflow: hidden; }
 .eco-title-vertical { font-weight: 900; white-space: nowrap; position: absolute; bottom: 0; left: 0; transform-origin: bottom left; transform: rotate(-90deg); font-size: 2.25rem; letter-spacing: 0.1em; color: #cbd5e1; opacity: 1; transition: opacity 0.5s; }

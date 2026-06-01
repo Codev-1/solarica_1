@@ -154,3 +154,51 @@
 .wa-pulse { position: absolute; inset: 0; border-radius: 50%; border: 1px solid #25d366; animation: animPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; opacity: 0.75; }
 .floating-wa-container.active .wa-pulse { display: none; }
 @keyframes animPing { 75%, 100% { transform: scale(1.5); opacity: 0; } }
+
+/* =========================================
+   GLOBAL SCROLL TO TOP FLOATING BUTTON
+========================================= */
+.scroll-to-top-btn {
+    position: fixed !important; /* Force it to stay fixed to view window */
+    bottom: 105px; 
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff !important; /* Solid background prevents transparency bleed */
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    color: #475569; 
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 9999999 !important; /* Absolute highest stacking context priority */
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Visibility Trigger State handled by JavaScript */
+.scroll-to-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Interactive Hover States */
+.scroll-to-top-btn:hover {
+    background-color: #ea580c; /* Changes to Solarica Brand Orange */
+    border-color: transparent;
+    color: #ffffff; /* White arrow glyph */
+    transform: translateY(-4px); /* Micro-interaction lift */
+    box-shadow: 0 20px 25px -5px rgba(234, 88, 12, 0.3); /* Orange accent glow */
+}
+
+/* Active pressed down physics click indicator */
+.scroll-to-top-btn:active {
+    transform: translateY(-1px);
+}

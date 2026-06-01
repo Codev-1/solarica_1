@@ -10,7 +10,7 @@ const schemesData = {
         quote: {
             text: "In order to further sustainable development and people's well-being, we are launching the PM Surya Ghar: Muft Bijli Yojana. This project, with an investment of over Rs. 75,000 crores, aims to light up 1 crore households by providing up to 300 units of free electricity every month.",
             author: "Shri Narendra Modi", role: "Hon'ble Prime Minister of India",
-            image: "assets/images/pm-modi-hd.png" // Fixed path
+            image: "assets/images/Suryaghar.png" // Fixed path
         },
         tableHeaders: ["Category", "Subsidy Rate", "Notes"],
         tableData: [
