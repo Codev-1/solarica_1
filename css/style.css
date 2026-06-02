@@ -84,11 +84,14 @@ ul { list-style: none; }
     transition: all 0.3s ease;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    
 }
 .btn:hover { transform: scale(1.05); }
-.btn-primary { background-color: #a3e635; color: var(--slate-900); }
+.btn-primary { background-color: #a3e635; color: var(--slate-900); margin-top: 10%; }
 .btn-primary:hover { background-color: #84cc16; }
-.btn-secondary { background-color: var(--white); color: var(--slate-900); }
+.btn-secondary { background-color: var(--white); color: var(--slate-900);margin-top: 10%; }
 .btn-secondary:hover { background-color: var(--slate-100); }
 
 .pulse-dot { display: block; width: 10px; height: 10px; background-color: var(--orange-500); border-radius: 50%; animation: pulse 2s infinite; }
@@ -197,13 +200,13 @@ ul { list-style: none; }
 .product-card:hover .product-title { color: var(--orange-500); }
 
 /* --- 6. PM SURYA GHAR --- */
-.surya-section { padding: 8rem 0; background: var(--white); }
+.surya-section { padding: 2rem 0; background: var(--white);  }
 .surya-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
 @media (min-width: 1024px) { .surya-grid { grid-template-columns: 5fr 7fr; } }
 .surya-badge { display: inline-block; background: var(--orange-100); color: #c2410c; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
-.surya-title { font-size: 3.75rem; font-weight: 700; color: var(--slate-900); line-height: 0.9; letter-spacing: -0.05em; margin-bottom: 2rem; }
-@media (min-width: 768px) { .surya-title { font-size: 6rem; } }
-.surya-desc { font-size: 1.25rem; color: var(--slate-600); line-height: 1.625; font-weight: 300; margin-bottom: 2.5rem; }
+.surya-title { font-size: 3.75rem; font-weight: 700; color: var(--slate-900); line-height: 1; letter-spacing: -0.05em; margin-bottom: 2.5rem; }
+@media (min-width: 768px) { .surya-title { font-size: 6rem; margin-bottom: 90px; } }
+.surya-desc { font-size: 1.25rem; color: var(--slate-600); line-height: 1.625; font-weight: 300; margin-bottom: 2.5rem; margin-top: 2.5rem; }
 .surya-features { display: flex; flex-wrap: wrap; gap: 1rem; }
 .feature-box { padding: 1.25rem 2rem; border-radius: 1rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.125rem; color: var(--slate-900); }
 .bg-orange-light-box { background: var(--orange-50); border: 1px solid var(--orange-100); }
@@ -283,6 +286,371 @@ ul { list-style: none; }
 .eco-content-active p { color: rgba(255,255,255,0.9); font-size: 1.25rem; font-weight: 300; line-height: 1.625; margin-bottom: 2rem; max-width: 32rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1)); }
 .btn-explore { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: var(--white); color: var(--slate-900); border-radius: 9999px; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); transition: all 0.3s; }
 .btn-explore:hover { background: var(--slate-200); transform: scale(1.05); }
+
+
+
+/* ==========================================================
+   THE IMMERSIVE KINETIC ECOSYSTEM STYLESHEET
+========================================================== */
+.eco-section {
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #0b0f19; /* Deep executive midnight tone context */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 1;
+}
+
+/* Cinematic Vector Background Mesh Elements */
+.eco-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+.eco-grid-mesh {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.7;
+    mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+}
+.eco-ambient-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 100%);
+    filter: blur(80px);
+    transition: all 1s ease;
+}
+
+/* Vector Geometric Windmill Assets */
+.eco-vector-windfarm {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 4rem;
+    opacity: 0.15;
+}
+.vector-windmill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.v-shaft {
+    width: 4px;
+    background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+}
+.w-1 .v-shaft { height: 180px; } .w-2 .v-shaft { height: 120px; } .w-3 .v-shaft { height: 230px; }
+
+.v-blades {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    position: absolute;
+    top: -10px;
+    animation: ecoSpin linear infinite;
+}
+.w-1 .v-blades { animation-duration: 7s; width: 30px; height: 30px; border-left: 3px solid #fff; }
+.w-2 .v-blades { animation-duration: 11s; animation-direction: reverse; width: 20px; height: 20px; border-left: 2px solid #fff; }
+.w-3 .v-blades { animation-duration: 9s; width: 40px; height: 40px; border-left: 4px solid #fff; }
+
+@keyframes ecoSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Section Header Typography Configuration */
+.eco-wrapper-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.eco-header-block {
+    text-align: center;
+    margin-bottom: 4.5rem;
+}
+.eco-modern-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+.badge-pulse {
+    width: 6px;
+    height: 6px;
+    background-color: #f97316;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f97316;
+}
+.eco-main-title {
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+}
+.text-glow-accent {
+    background: linear-gradient(135deg, #f97316, #22c55e);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.eco-subtitle-desc {
+    color: #94a3b8;
+    font-size: 1.125rem;
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Kinetic Dashboard Engine Layout */
+.eco-dashboard-engine {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 650px;
+    gap: 1.25rem;
+    width: 100%;
+    margin: 0 auto;
+}
+@media (min-width: 1024px) {
+    .eco-dashboard-engine {
+        flex-direction: row;
+        height: 65vh;
+    }
+}
+
+/* Individual Premium Kinetic Glass Panels */
+.eco-kinetic-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    cursor: pointer;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 1;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.3, 1);
+    will-change: flex, transform;
+}
+.card-tech-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0);
+    background-size: 16px 16px;
+    transition: opacity 0.6s ease;
+}
+
+/* Hover/Active Unfolding State Physics */
+@media (min-width: 1024px) {
+    .eco-kinetic-card.active {
+        flex: 4.5;
+        background: rgba(15, 23, 42, 0.75);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+    }
+    .eco-kinetic-card.active .card-tech-grid {
+        opacity: 0.4;
+    }
+}
+@media (max-width: 1023px) {
+    .eco-kinetic-card {
+        flex: none;
+        height: 100px;
+    }
+    .eco-kinetic-card.active {
+        height: auto;
+        min-height: 420px;
+    }
+}
+
+/* Ambient Radial Colors Linked to Selection States */
+.eco-kinetic-card .card-glass-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    transition: opacity 0.6s ease, background 0.6s ease;
+}
+.eco-kinetic-card.active .card-glass-glow { opacity: 1; }
+
+.eco-kinetic-card[data-eco-theme="energy"] .card-glass-glow { background: radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.15) 0%, transparent 60%); }
+.eco-kinetic-card[data-eco-theme="systems"] .card-glass-glow { background: radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.15) 0%, transparent 60%); }
+.eco-kinetic-card[data-eco-theme="industries"] .card-glass-glow { background: radial-gradient(circle at 10% 10%, rgba(100, 116, 139, 0.15) 0%, transparent 60%); }
+.eco-kinetic-card[data-eco-theme="greenwheels"] .card-glass-glow { background: radial-gradient(circle at 10% 10%, rgba(34, 197, 94, 0.15) 0%, transparent 60%); }
+.eco-kinetic-card[data-eco-theme="fabtech"] .card-glass-glow { background: radial-gradient(circle at 10% 10%, rgba(147, 51, 234, 0.15) 0%, transparent 60%); }
+
+/* Inside Content Positioning */
+.card-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.card-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.card-icon-sphere {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+.eco-kinetic-card.active .card-icon-sphere {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Icon Gradient Highlight Accents */
+.icon-orange { color: #f97316; } .eco-kinetic-card.active .icon-orange { background: #f97316; color: #fff; box-shadow: 0 0 20px rgba(249,115,22,0.4); }
+.icon-blue { color: #3b82f6; } .eco-kinetic-card.active .icon-blue { background: #3b82f6; color: #fff; box-shadow: 0 0 20px rgba(59,130,246,0.4); }
+.icon-slate { color: #94a3b8; } .eco-kinetic-card.active .icon-slate { background: #64748b; color: #fff; box-shadow: 0 0 20px rgba(100,116,139,0.4); }
+.icon-green { color: #22c55e; } .eco-kinetic-card.active .icon-green { background: #22c55e; color: #fff; box-shadow: 0 0 20px rgba(34,197,94,0.4); }
+.icon-purple { color: #a855f7; } .eco-kinetic-card.active .icon-purple { background: #9333ea; color: #fff; box-shadow: 0 0 20px rgba(147,51,234,0.4); }
+
+.card-serial-num {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #475569;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+.eco-kinetic-card.active .card-serial-num { color: #94a3b8; }
+
+.card-body-text {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+/* Dynamic Typography Mechanics (Vertical to Horizontal Translation) */
+.vertical-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #94a3b8;
+    margin: 0;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+}
+@media (min-width: 1024px) {
+    .eco-kinetic-card:not(.active) .vertical-title {
+        transform: rotate(-90deg) translate(-20px, 15px);
+        transform-origin: left bottom;
+        font-size: 1.35rem;
+    }
+}
+.eco-kinetic-card.active .vertical-title {
+    opacity: 0;
+    transform: translateY(-10px);
+    height: 0;
+    overflow: hidden;
+}
+
+/* Unfolding Content Visibility Elements */
+.expanded-content-view {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    max-height: 0;
+}
+.eco-kinetic-card.active .expanded-content-view {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 500px;
+    transition-delay: 0.2s;
+}
+
+.subsidiary-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #64748b;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.subsidiary-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+.subsidiary-desc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
+    max-width: 440px;
+}
+
+/* Dynamic Call-To-Action Tracking Pill Buttons */
+.eco-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+.eco-action-btn i { transition: transform 0.3s ease; }
+.eco-action-btn:hover i { transform: translateX(5px); }
+
+.btn-orange { background-color: #f97316; color: #fff; } .btn-orange:hover { background-color: #ea580c; box-shadow: 0 10px 20px rgba(249,115,22,0.3); }
+.btn-blue { background-color: #3b82f6; color: #fff; } .btn-blue:hover { background-color: #2563eb; box-shadow: 0 10px 20px rgba(59,130,246,0.3); }
+.btn-slate { background-color: #475569; color: #fff; } .btn-slate:hover { background-color: #334155; box-shadow: 0 10px 20px rgba(100,116,139,0.3); }
+.btn-green { background-color: #22c55e; color: #fff; } .btn-green:hover { background-color: #16a34a; box-shadow: 0 10px 20px rgba(34,197,94,0.3); }
+.btn-purple { background-color: #9333ea; color: #fff; } .btn-purple:hover { background-color: #7e22ce; box-shadow: 0 10px 20px rgba(147,51,234,0.3); }
+
+
 
 /* --- 8. CTA SECTION --- */
 .cta-section { height: 80vh; display: flex; align-items: center; justify-content: center; background: var(--slate-900); color: var(--white); border-radius: 4rem 4rem 0 0; position: relative; overflow: hidden; margin: 0 0.5rem 1rem 0.5rem; cursor: pointer; }

@@ -53,33 +53,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --- 4. GSAP ANIMATIONS ---
+   // --- 3. UNIFIED HERO CINEMATIC PARALLAX TIMELINE ---
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".hero-text-container", { opacity: 1, duration: 1 });
-    gsap.from(".hero-title, .hero-subtitle", { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" });
-    gsap.to(".hero-buttons", { opacity: 1, y: 0, duration: 1, delay: 0.8 });
+    // Initial Core Entrance Animation (Runs once when the page loads)
+    const entranceTimeline = gsap.timeline();
+    
+    // 1. Reveal the main text wrapper container
+    entranceTimeline.to(".hero-text-container", { opacity: 1, duration: 0.5 });
+    
+    // 2. Slide up and fade in the titles (Since their CSS default is visible)
+    entranceTimeline.from(".hero-title, .hero-subtitle", { 
+        y: 80, 
+        opacity: 0, 
+        duration: 1.2, 
+        stagger: 0.2,
+        ease: "power4.out" 
+    });
 
-    gsap.to(".hero-bg-container", {
-        yPercent: 50,
-        ease: "none",
+    // 3. FIXED: Explicitly animate buttons TO opacity 1 so they reveal perfectly
+    entranceTimeline.to(".hero-buttons", { 
+        opacity: 1, 
+        y: 0, 
+        duration: 1, 
+        ease: "power3.out"
+    }, "-=0.6"); // "-=0.6" overlaps the animation slightly with the subtitle for a fluid flow
+
+    // Scroll-Linked Parallax Timeline (Tied directly to your Lenis scroll axis)
+    const heroScrollTimeline = gsap.timeline({
         scrollTrigger: {
-            trigger: "#hero-section",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
+            trigger: ".hero-section",
+            start: "top top",      
+            end: "bottom top",    
+            scrub: 0.5,           
+            invalidateOnRefresh: true 
         }
     });
 
-    gsap.to(".hero-text-container", {
+    // Background Parallax: Moves down slightly slower than scroll
+    heroScrollTimeline.to(".hero-bg-container", {
+        yPercent: 25,
+        ease: "none"
+    }, 0);
+
+    // Text & Button Parallax: Lifts up gracefully and fades out altogether on scroll down
+    heroScrollTimeline.to(".hero-text-container", {
+        yPercent: -20,
         opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#hero-section",
-            start: "top top",
-            end: "center top",
-            scrub: true
-        }
-    });
+        ease: "power1.out"
+    }, 0);
 
     // --- 5. MARQUEE STRIP ---
     const marqueeParts = document.querySelectorAll(".marquee-part");
@@ -166,5 +188,45 @@ document.addEventListener("DOMContentLoaded", () => {
             ecoCards.forEach(c => c.classList.remove("active"));
             card.classList.add("active");
         });
+    });
+});
+
+
+
+// --- 7. IMMERSIVE ECOSYSTEM KINETIC ENGINE ---
+const ecoCards = document.querySelectorAll(".eco-kinetic-card");
+const ambientBg = document.querySelector(".eco-ambient-core");
+
+// Core variable mapping background accent rings to active selections
+const themeGlows = {
+    energy: "radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0) 70%)",
+    systems: "radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(15, 23, 42, 0) 70%)",
+    industries: "radial-gradient(circle, rgba(100, 116, 139, 0.15) 0%, rgba(15, 23, 42, 0) 70%)",
+    greenwheels: "radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, rgba(15, 23, 42, 0) 70%)",
+    fabtech: "radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(15, 23, 42, 0) 70%)"
+};
+
+ecoCards.forEach(card => {
+    // Triggers beautifully on hover for mouse devices
+    card.addEventListener("mouseenter", () => {
+        ecoCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        
+        // Dynamic Ambient Canvas Adjustments
+        const currentTheme = card.getAttribute("data-eco-theme");
+        if (ambientBg && themeGlows[currentTheme]) {
+            ambientBg.style.background = themeGlows[currentTheme];
+        }
+    });
+
+    // Mobile click safe guard framework compatibility
+    card.addEventListener("click", () => {
+        ecoCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        
+        const currentTheme = card.getAttribute("data-eco-theme");
+        if (ambientBg && themeGlows[currentTheme]) {
+            ambientBg.style.background = themeGlows[currentTheme];
+        }
     });
 });

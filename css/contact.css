@@ -31,8 +31,8 @@
 .contact-subtitle { font-size: 1.25rem; color: #64748b; font-weight: 300; max-width: 42rem; margin: 0 auto; line-height: 1.6; }
 
 /* --- 3. LAYOUT GRID --- */
-.contact-container { display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 80rem; margin: 0 auto; align-items: start; }
-@media (min-width: 1024px) { .contact-container { grid-template-columns: repeat(2, 1fr); gap: 6rem; } }
+.contact-container { display: grid; grid-template-columns: 1fr;  max-width: 80rem; margin: 0 auto; align-items: start; padding: 0 1rem; }
+@media (min-width: 1024px) { .contact-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
 
 /* --- 4. CONTACT FORM CARD --- */
 .contact-form-card { position: relative; background: rgba(255,255,255,0.8); backdrop-filter: blur(24px); border-radius: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); padding: 2rem; border: 1px solid rgba(255,255,255,0.6); overflow: hidden; }
@@ -64,7 +64,7 @@
 .btn-submit:active { transform: scale(0.98); }
 
 /* --- 5. RIGHT COLUMN: INFO CARDS --- */
-.contact-info-column { display: flex; flex-direction: column; gap: 2rem; padding-top: 1rem; }
+.contact-info-column { display: flex; flex-direction: column; gap: 2rem;  }
 
 .info-card { background: white; padding: 2rem; border-radius: 1.5rem; border: 1px solid #f1f5f9; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; align-items: flex-start; gap: 1.5rem; transition: all 0.3s; }
 .info-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
@@ -86,13 +86,71 @@
 .links-list a:hover { color: #f97316; }
 
 /* Map Card */
-.map-card { border-radius: 1.5rem; overflow: hidden; height: 16rem; border: 4px solid white; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); position: relative; cursor: pointer; }
-.map-card iframe { width: 100%; height: 100%; border: none; filter: grayscale(100%); transition: filter 0.7s; }
-.map-card:hover iframe { filter: grayscale(0%); }
-.map-overlay { position: absolute; inset: 0; background: rgba(249,115,22,0.2); transition: opacity 0.5s; pointer-events: none; }
-.map-card:hover .map-overlay { opacity: 0; }
-.map-badge { position: absolute; bottom: 1rem; right: 1rem; background: white; padding: 0.5rem 1rem; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); font-size: 0.75rem; font-weight: 700; pointer-events: none; }
-.map-badge i { color: #f97316; margin-right: 0.25rem; }
+/* =========================================
+   FULL BLEED EDGE-TO-EDGE MAP BLOCK FIX
+========================================= */
+.full-bleed-map-section {
+    width: 100%;
+    margin-top: 6rem; /* High-fidelity vertical padding separator from form fields */
+    position: relative;
+    z-index: 10;
+}
+
+.map-card { 
+    width: 100%; 
+    height: 28rem; /* Expanded from 16rem to look clean and premium at wide spans */
+    position: relative; 
+    cursor: pointer; 
+    overflow: hidden;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.02);
+}
+
+.map-card iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: 1px solid black ; 
+    filter: grayscale(100%); 
+    transition: filter 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.map-card:hover iframe { 
+    filter: grayscale(0%); 
+}
+
+.map-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: rgba(249, 115, 22, 0.04); /* Subtle brand tint overlay */
+    transition: opacity 0.5s ease; 
+    pointer-events: none; 
+}
+
+.map-card:hover .map-overlay { 
+    opacity: 0; 
+}
+
+.map-badge { 
+    position: absolute; 
+    bottom: 2rem; 
+    right: 3rem; 
+    background: #ffffff; 
+    padding: 0.6rem 1.5rem; 
+    border-radius: 9999px; 
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1); 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    pointer-events: none; 
+    transition: all 0.3s;
+}
+
+.map-badge i { 
+    color: #f97316; 
+    margin-right: 0.35rem; 
+}
 
 /* --- 6. ENTRANCE ANIMATIONS --- */
 .fade-in-up { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
