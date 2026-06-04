@@ -116,7 +116,7 @@
 /* =========================================
    FLOATING WHATSAPP CSS
 ========================================= */
-.floating-wa-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; font-family: sans-serif; }
+.floating-wa-container { position: fixed; bottom: 2rem; right: 0.6rem; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; font-family: sans-serif; }
 
 .wa-dropdown { background: white; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid var(--f-slate-100); width: 16rem; overflow: hidden; margin-bottom: 0.5rem; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.9); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .wa-dropdown.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
@@ -161,7 +161,7 @@
 .scroll-to-top-btn {
     position: fixed !important; /* Force it to stay fixed to view window */
     bottom: 105px; 
-    right: 30px;
+    right: 20px;
     width: 45px;
     height: 45px;
     background-color: #ffffff !important; /* Solid background prevents transparency bleed */
@@ -193,7 +193,7 @@
 .scroll-to-top-btn:hover {
     background-color: #ea580c; /* Changes to Solarica Brand Orange */
     border-color: transparent;
-    color: #ffffff; /* White arrow glyph */
+    color: #ea5454; /* White arrow glyph */
     transform: translateY(-4px); /* Micro-interaction lift */
     box-shadow: 0 20px 25px -5px rgba(234, 88, 12, 0.3); /* Orange accent glow */
 }

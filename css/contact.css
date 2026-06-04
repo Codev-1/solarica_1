@@ -63,6 +63,112 @@
 .btn-submit:hover { background: linear-gradient(to right, #ea580c, #ca8a04); transform: scale(1.02); }
 .btn-submit:active { transform: scale(0.98); }
 
+
+/* --- Premium Phone Input Group Styling Track --- */
+.phone-input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #cbd5e1; /* Smooth slate-300 border base match */
+    border-radius: 12px; /* Smooth card curvature */
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Enhances the container border color instantly when either field inside gains focus */
+.phone-input-group:focus-within {
+    border-color: #f97316; /* Changes completely to your signature orange brand color */
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15); /* Modern soft outer ambient ring glow */
+}
+
+/* Country Code Dropdown Container Block */
+.country-code-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc; /* Subtle slate-50 separation tint background */
+    border-right: 1px solid #e2e8f0; /* Crisp division block line */
+    min-width: 105px;
+}
+
+.country-code-select select {
+    width: 100%;
+    height: 100%;
+    padding: 0.75rem 1.75rem 0.75rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    background: transparent;
+    border: none !important;
+    outline: none !important;
+    cursor: pointer;
+    appearance: none; /* Strip native OS styling elements completely */
+    -webkit-appearance: none;
+}
+
+/* Clean micro design absolute chevron placement for custom select box formats */
+.country-code-select .dropdown-arrow {
+    position: absolute;
+    right: 12px;
+    font-size: 0.75rem;
+    color: #64748b;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+/* Dedicated Telephone Text Data block handling */
+.phone-input-group input[type="tel"] {
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #0f172a;
+    background: transparent;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.phone-input-group input[type="tel"]::placeholder {
+    color: #94a3b8;
+}
+
+/* --- Validation UI States --- */
+.error-msg {
+    display: block;
+    color: #dc2626; /* Premium Tailwind Red-600 */
+    font-size: 0.825rem;
+    font-weight: 500;
+    margin-top: 4px;
+    min-height: 18px;
+    opacity: 0;
+    transform: translateY(-3px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.error-msg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Style field inputs when an error is active */
+input.invalid-field, 
+textarea.invalid-field,
+select.invalid-field {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+}
+
+/* Handle the specialized compound phone layout box wrapper red ring alert toggle */
+.phone-input-group.invalid-field {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+}
+.phone-input-group.invalid-field input[type="tel"] {
+    background-color: transparent !important;
+}
+
 /* --- 5. RIGHT COLUMN: INFO CARDS --- */
 .contact-info-column { display: flex; flex-direction: column; gap: 2rem;  }
 
@@ -84,6 +190,9 @@
 
 .links-list a { color: #2563eb; font-weight: 700; text-decoration: none; transition: color 0.3s; }
 .links-list a:hover { color: #f97316; }
+
+
+
 
 /* Map Card */
 /* =========================================

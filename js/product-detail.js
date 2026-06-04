@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Get the slug from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const slug = urlParams.get('slug') || 'led-solar-street-light-30w'; 
+    const pageName = window.location.pathname.split("/").pop();
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug") || pageName.replace(".html", "") || 'led-solar-street-light-30w';
 
     const product = productDatabase[slug];
 

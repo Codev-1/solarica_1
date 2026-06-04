@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="css/contact.css?v=1">
     
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <!-- Full Favicon Cross-Platform Suite Integration -->
+<link rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/images/favicon/site.webmanifest">
 </head>
 <body class="contact-body">
 
@@ -63,37 +69,41 @@
                 <form class="contact-form" id="solarica-whatsapp-form">
     
     <div class="form-group">
-        <label>Full Name</label>
+        <label for="form-fullname">Full Name</label>
         <input type="text" id="form-fullname" required placeholder="John Doe">
     </div>
 
     <div class="form-row">
         <div class="form-group">
-            <label>Email</label>
+            <label for="form-email">Email Address</label>
             <input type="email" id="form-email" required placeholder="john@example.com">
         </div>
         <div class="form-group">
-            <label>Phone Number</label>
-            <div style="display: flex; gap: 8px; width: 100%;">
-                <select id="form-country-code" required style="width: 100px; padding: 0.5rem; border-radius: 8px; border: 1px solid #ccc; background: #fff; font-weight: 600;">
-                    <option value="+91" selected>🇮🇳 +91</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+44">🇬🇧 +44</option>
-                    <option value="+971">🇦🇪 +971</option>
-                    <option value="+966">🇸🇦 +966</option>
-                </select>
-                <input type="tel" id="form-phone" required placeholder="9876543210" style="flex-grow: 1;">
+            <label for="form-phone">Phone Number</label>
+            <!-- Unified Phone & Country Input Component Group -->
+            <div class="phone-input-group">
+                <div class="country-code-select">
+                    <select id="form-country-code" required>
+                        <option value="+91" selected>🇮🇳 +91</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+966">🇸🇦 +966</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                </div>
+                <input type="tel" id="form-phone" required placeholder="9876543210" pattern="[0-9]{10,14}">
             </div>
         </div>
     </div>
 
     <div class="form-group">
-        <label>Address</label>
+        <label for="form-address">Address</label>
         <input type="text" id="form-address" required placeholder="Enter your full building/city address">
     </div>
 
     <div class="form-group">
-        <label>Subject</label>
+        <label for="form-subject">Subject</label>
         <div class="select-wrapper">
             <select id="form-subject" required>
                 <option value="" disabled selected>Select a topic</option>
@@ -108,7 +118,7 @@
     </div>
 
     <div class="form-group">
-        <label>Message</label>
+        <label for="form-message">Message</label>
         <textarea id="form-message" required rows="4" placeholder="Tell us about your project..."></textarea>
     </div>
 
@@ -224,7 +234,8 @@ document.getElementById("solarica-whatsapp-form").addEventListener("submit", fun
                     <div class="info-text">
                         <h3>Our Digital Presence</h3>
                         <ul class="links-list">
-                            <li><a href="https://www.solarica.in" target="_blank">www.solarica.in <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+							<li><a href="https://www.solaricagroups.com" target="_blank">solaricagroups.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                            <!-- <li><a href="https://www.solarica.in" target="_blank">www.solarica.in <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li> -->
                             <li><a href="https://solaricaenergy.in" target="_blank">solaricaenergy.in <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                         </ul>
                     </div>

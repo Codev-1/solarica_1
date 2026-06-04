@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 const cardHtml = `
-                    <a href="product.html?slug=${product.slug}" class="cat-card group">
+                    <a href="${encodeURIComponent(product.slug)}.html" class="cat-card group">
                         <div class="badge-enquiry ${themeColorClass}">ENQUIRY NOW</div>
                         <div class="cat-img-box ${lightBgClass}">
                             <div class="img-glow ${themeColorClass}"></div>

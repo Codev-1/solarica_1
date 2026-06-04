@@ -355,7 +355,7 @@ const productDatabase = {
   },
 
   // 7. SOLAR INVERTER SYSTEMS
-  "solar-string-inverter-5kw ": {
+  "solar-string-inverter-5kw": {
     name: "Solar String Inverter 5KW",
     category: "Solar Inverter Systems",
     company: "Solarica Energy India Pvt. Ltd.",
